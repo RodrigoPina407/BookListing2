@@ -162,7 +162,7 @@ public final class BookQuery {
 
                     for (int j = 0; j < authorArray.length(); j++) {
                         authorsStringBuild.append(authorArray.getString(j));
-                        authorsStringBuild.append("\n");
+                        authorsStringBuild.append(" ");
                     }
 
                     authors = authorsStringBuild.toString();

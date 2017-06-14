@@ -6,6 +6,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -37,7 +38,9 @@ public class BookList extends AppCompatActivity implements LoaderManager.LoaderC
 
         StringBuilder query = new StringBuilder();
 
-        query.append(GENERIC_BOOK_REQUEST_URL).append(mSearchTerms).append("&orderBy=relevance");
+        mSearchTerms = mSearchTerms.replaceAll(" ","+");
+
+        query.append(GENERIC_BOOK_REQUEST_URL).append(mSearchTerms).append("&maxResults=40");
 
         mQuery = query.toString();
 
